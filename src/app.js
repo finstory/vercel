@@ -63,7 +63,7 @@ server.use((req, res, next) => {
 
 
 server.get('/test', (req, res) => {
-  res.send("it´s working...");
+  res.send("222it´s working...");
 });
 
 module.exports = server;
