@@ -13,13 +13,35 @@ const tedious = require('tedious')
 // 	, logging: true // *DEUBUG
 // });
 
-let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
-	host: DB_HOST,
-	port: 3306,
-	dialect: "mysql",
-	dialectModule: tedious,
-	logging: true // *DEUBUG	
+
+const mysql = require('mysql');
+
+
+const connection = mysql.createConnection({
+	host:DB_HOST,
+	user: DB_USER,
+	password: DB_PASSWORD,
+	database: DB_NAME
 });
+
+const sequelize = new Sequelize({
+	dialect: 'mysql',
+	dialectModule: mysql,
+	dialectOptions: {
+	  connection
+	}
+  });
+
+// let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+// 	host: DB_HOST,
+// 	port: 3306,
+// 	dialect: "mysql",
+// 	dialectModule: mysql,
+// 	dialectOptions: {
+// 		connection
+// 	},
+// 	logging: true // *DEUBUG	
+// });
 
 // const basename = path.basename(__filename);
 
