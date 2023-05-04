@@ -16,12 +16,12 @@ const DB_HOST = "sql10.freemysqlhosting.net";
 const mysql = require('mysql');
 
 
-// const connection = mysql.createConnection({
-// 	host:DB_HOST,
-// 	user: DB_USER,
-// 	password: DB_PASSWORD,
-// 	database: DB_NAME
-// });
+const connection = mysql.createConnection({
+	host:DB_HOST,
+	user: DB_USER,
+	password: DB_PASSWORD,
+	database: DB_NAME
+});
 
 // const sequelize = new Sequelize({
 // 	dialect: 'mysql',
