@@ -5,7 +5,7 @@ const DB_NAME = "sql10615644";
 const DB_USER = "sql10615644";
 const DB_PASSWORD = "MxuQHsmdN2";
 const DB_HOST = "sql10.freemysqlhosting.net";
-const tedious = require('tedious')
+// const tedious = require('tedious')
 // let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
 // 	host: DB_HOST
 // 	, dialect: "mysql"
