@@ -17,20 +17,20 @@ const tedious = require('tedious')
 const mysql = require('mysql');
 
 
-const connection = mysql.createConnection({
-	host:DB_HOST,
-	user: DB_USER,
-	password: DB_PASSWORD,
-	database: DB_NAME
-});
+// const connection = mysql.createConnection({
+// 	host:DB_HOST,
+// 	user: DB_USER,
+// 	password: DB_PASSWORD,
+// 	database: DB_NAME
+// });
 
-const sequelize = new Sequelize({
-	dialect: 'mysql',
-	dialectModule: mysql,
-	dialectOptions: {
-	  connection
-	}
-  });
+// const sequelize = new Sequelize({
+// 	dialect: 'mysql',
+// 	dialectModule: mysql,
+// 	dialectOptions: {
+// 	  connection
+// 	}
+//   });
 
 // let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
 // 	host: DB_HOST,
