@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
+
 const DB_NAME = "sql10615644";
 const DB_USER = "sql10615644";
 const DB_PASSWORD = "MxuQHsmdN2";
@@ -12,54 +13,30 @@ const DB_HOST = "sql10.freemysqlhosting.net";
 // 	, logging: true // *DEUBUG
 // });
 
-
-const mysql = require('mysql');
-
-
-const connection = mysql.createConnection({
-	host:DB_HOST,
-	user: DB_USER,
-	password: DB_PASSWORD,
-	database: DB_NAME
+let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+	host: DB_HOST,
+	port: 3306,
+	 dialect: "mysql"
+	, logging: true // *DEUBUG
 });
 
-const sequelize = new Sequelize({
-	dialect: 'mysql',
-	dialectModule: mysql,
-	dialectOptions: {
-	  connection
-	},
-	logging: true
-  });
+// const basename = path.basename(__filename);
 
-// let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
-// 	host: DB_HOST,
-// 	port: 3306,
-// 	dialect: "mysql",
-// 	dialectModule: mysql,
-// 	dialectOptions: {
-// 		connection
-// 	},
-// 	logging: true // *DEUBUG	
-// });
+// const modelDefiners = [];
 
-const basename = path.basename(__filename);
+// // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
+// fs.readdirSync(path.join(__dirname, '/models'))
+// 	.filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
+// 	.forEach((file) => {
+// 		modelDefiners.push(require(path.join(__dirname, '/models', file)));
+// 	});
 
-const modelDefiners = [];
-
-// Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
-fs.readdirSync(path.join(__dirname, '/models'))
-	.filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
-	.forEach((file) => {
-		modelDefiners.push(require(path.join(__dirname, '/models', file)));
-	});
-
-// Injectamos la conexion (sequelize) a todos los modelos
-modelDefiners.forEach(model => model(sequelize));
-// Capitalizamos los nombres de los modelos ie: product => Product
-let entries = Object.entries(sequelize.models);
-let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
-sequelize.models = Object.fromEntries(capsEntries);
+// // Injectamos la conexion (sequelize) a todos los modelos
+// modelDefiners.forEach(model => model(sequelize));
+// // Capitalizamos los nombres de los modelos ie: product => Product
+// let entries = Object.entries(sequelize.models);
+// let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
+// sequelize.models = Object.fromEntries(capsEntries);
 
 
 
@@ -91,5 +68,5 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 module.exports = {
 	// ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
-	conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
+	conn: "sequelize",     // para importart la conexión { conn } = require('./db.js');
 };
