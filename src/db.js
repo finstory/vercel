@@ -24,7 +24,13 @@ const sequelize = new Sequelize('verceldb', 'default', 'v8x3qgYBUSWj', {
 	  }
 	}
   });
-
+  sequelize.authenticate()
+  .then(() => {
+    console.log('Conexión establecida correctamente.');
+  })
+  .catch(err => {
+    console.error('No se pudo conectar a la base de datos:', err);
+  });
 // const basename = path.basename(__filename);
 
 // const modelDefiners = [];
