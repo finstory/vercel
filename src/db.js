@@ -13,12 +13,17 @@ const DB_HOST = "sql10.freemysqlhosting.net";
 // 	, logging: true // *DEUBUG
 // });
 
-let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
-	host: DB_HOST,
-	port: 3306,
-	 dialect: "mysql"
-	, logging: true // *DEUBUG
-});
+const sequelize = new Sequelize('verceldb', 'default', 'v8x3qgYBUSWj', {
+	dialect: 'postgres',
+	host: 'ep-little-dream-540158.us-east-2.postgres.vercel-storage.com',
+	port: 5432,
+	dialectOptions: {
+	  ssl: {
+		require: true,
+		rejectUnauthorized: false
+	  }
+	}
+  });
 
 // const basename = path.basename(__filename);
 
