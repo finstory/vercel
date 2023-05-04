@@ -6,7 +6,7 @@ const DB_NAME = "sql10615644";
 const DB_USER = "sql10615644";
 const DB_PASSWORD = "MxuQHsmdN2";
 const DB_HOST = "sql10.freemysqlhosting.net";
-
+const tedious = require('tedious')
 // let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
 // 	host: DB_HOST
 // 	, dialect: "mysql"
@@ -16,8 +16,9 @@ const DB_HOST = "sql10.freemysqlhosting.net";
 let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
 	host: DB_HOST,
 	port: 3306,
-	dialect: "mysql"
-	, logging: true // *DEUBUG
+	dialect: "mysql",
+	dialectModule: tedious,
+	logging: true // *DEUBUG	
 });
 
 // const basename = path.basename(__filename);
