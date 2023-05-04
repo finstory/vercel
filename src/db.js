@@ -1,4 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const mysql2 = require('mysql2');
 const fs = require('fs');
 const path = require('path');
 
@@ -13,24 +14,20 @@ const DB_HOST = "sql10.freemysqlhosting.net";
 // 	, logging: true // *DEUBUG
 // });
 
-const sequelize = new Sequelize('verceldb', 'default', 'v8x3qgYBUSWj', {
-	dialect: 'postgres',
-	host: 'ep-little-dream-540158.us-east-2.postgres.vercel-storage.com',
-	port: 5432,
-	dialectOptions: {
-	  ssl: {
-		require: true,
-		rejectUnauthorized: false
-	  }
+
+const sequelize = new Sequelize(
+	DB_NAME,
+	DB_USER,
+	DB_PASSWORD,
+	{
+	  dialect: 'mysql',
+	  dialectModule: mysql2, // Needed to fix sequelize issues with WebPack
+	  host: DB_HOST,
+	  port: 3006
 	}
-  });
-  sequelize.authenticate()
-  .then(() => {
-    console.log('Conexión establecida correctamente.');
-  })
-  .catch(err => {
-    console.error('No se pudo conectar a la base de datos:', err);
-  });
+  )
+
+
 // const basename = path.basename(__filename);
 
 // const modelDefiners = [];
