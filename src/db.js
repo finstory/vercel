@@ -13,6 +13,14 @@ const DB_HOST = "sql10.freemysqlhosting.net";
 // 	, logging: true // *DEUBUG
 // });
 
+setTimeout(() => {
+	let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+		host: DB_HOST
+		, dialect: "mysql"
+		, logging: true // *DEUBUG
+	});
+}, 10000);
+
 // const basename = path.basename(__filename);
 
 // const modelDefiners = [];
