@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-
+require('sequelize');
 const DB_NAME = "sql10615644";
 const DB_USER = "sql10615644";
 const DB_PASSWORD = "MxuQHsmdN2";
