@@ -15,12 +15,9 @@ const DB_HOST = "sql10.freemysqlhosting.net";
 
 let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
 	host: DB_HOST,
-	dialect: "mysql",
-	logging: true, // *DEUBUG
-	dialectOptions: {
-		insecureAuth: true,
-		query: { raw: `SET SESSION sql_mode='STRICT_TRANS_TABLES', whitelist_hosts='%.%.%.%'` }
-	}
+	port: 3306,
+	dialect: "mysql"
+	, logging: true // *DEUBUG
 });
 
 // const basename = path.basename(__filename);
