@@ -5,8 +5,6 @@ const morgan = require('morgan');
 // const routes = require('./routes/index.js');
 // const decryptToken = require('../helpers/decryptToken.js');
 
-// require('./db.js');
-
 const server = express();
 const cors = require('cors');
 server.use(cors());
@@ -47,7 +45,7 @@ server.use((req, res, next) => {
 // });
 
 
-// server.use('/', routes);
+server.use('/', routes);
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
@@ -62,8 +60,8 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 // testAttack();
 
 
-server.get('/test', (req, res) => {
-  res.send("t´s working...");
-});
+// server.get('/test', (req, res) => {
+//   res.send("t´s working...");
+// });
 
 module.exports = server;
