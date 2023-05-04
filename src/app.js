@@ -59,9 +59,4 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 
 // testAttack();
 
-
-// server.get('/test', (req, res) => {
-//   res.send("t´s working...");
-// });
-
 module.exports = server;
