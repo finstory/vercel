@@ -23,13 +23,13 @@ const connection = mysql.createConnection({
 	database: DB_NAME
 });
 
-// const sequelize = new Sequelize({
-// 	dialect: 'mysql',
-// 	dialectModule: mysql,
-// 	dialectOptions: {
-// 	  connection
-// 	}
-//   });
+const sequelize = new Sequelize({
+	dialect: 'mysql',
+	dialectModule: mysql,
+	dialectOptions: {
+	  connection
+	}
+  });
 
 // let sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
 // 	host: DB_HOST,
